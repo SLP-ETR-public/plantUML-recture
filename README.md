@@ -31,6 +31,7 @@ Quote : SoftEngII
 
 ## ディレクトリ構成
 
+```
 .
 ├── README.md
 ├── .gitignore
@@ -38,4 +39,5 @@ Quote : SoftEngII
          └── Q01
          └── Q02
          └── ・・・
+```
 
