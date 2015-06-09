@@ -1,0 +1,11 @@
+@startuml Q01.png
+title <size:18>Q01:maxmellon</size>
+actor hoge
+actor poge
+
+package "System" {
+  usecase (hogepoge) as foo
+  hoge -ri- foo
+}
+
+@enduml
