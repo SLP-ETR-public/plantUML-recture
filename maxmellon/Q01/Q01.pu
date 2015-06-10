@@ -3,11 +3,11 @@ title <size:18>Q01:maxmellon</size>
 actor User as user
 actor AdminUser as admin
 actor VendingMachine as vending
-user <|-up- AdminUser
+user <|-up- admin
 
+top to bottom direction
 
 package "VendingMachineSystem" {
-  top to bottom direction
 
   usecase (buy products)    as buyCase
   usecase (charge products) as chargeCase
