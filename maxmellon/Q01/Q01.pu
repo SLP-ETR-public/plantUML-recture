@@ -5,7 +5,7 @@ actor AdminUser as admin
 actor VendingMachine as vending
 user <|-up- admin
 
-top to bottom direction
+left to right direction
 
 package "VendingMachineSystem" {
 
@@ -15,10 +15,11 @@ package "VendingMachineSystem" {
   usecase (heat products)   as heat
   usecase (cold products)   as cold
 
-  user -ri- buyCase
-  admin -ri- chargeCase
+  user    -ri- buyCase
+  admin   -ri- chargeCase
   vending -le- manageCase
-  manageCase .ri.> heat
-  manageCase .ri.> cold
+
+  manageCase .ri.> heat : include
+  manageCase .ri.> cold : include
 }
 @enduml
