@@ -5,7 +5,10 @@ actor AdminUser as admin
 actor VendingMachine as vending
 user <|-up- AdminUser
 
+
 package "VendingMachineSystem" {
+  top to bottom direction
+
   usecase (buy products)    as buyCase
   usecase (charge products) as chargeCase
   usecase (Manage products) as manageCase
