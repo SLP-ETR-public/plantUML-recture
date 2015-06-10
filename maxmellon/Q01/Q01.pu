@@ -1,11 +1,21 @@
 @startuml Q01.png
 title <size:18>Q01:maxmellon</size>
-actor hoge
-actor poge
+actor User as user
+actor AdminUser as admin
+actor VendingMachine as vending
+user <|-up- AdminUser
 
-package "System" {
-  usecase (hogepoge) as foo
-  hoge -ri- foo
+package "VendingMachineSystem" {
+  usecase (buy products)    as buyCase
+  usecase (charge products) as chargeCase
+  usecase (Manage products) as manageCase
+  usecase (heat products)   as heat
+  usecase (cold products)   as cold
+
+  user -ri- buyCase
+  admin -ri- chargeCase
+  vending -le- manageCase
+  manageCase .ri.> heat
+  manageCase .ri.> cold
 }
-
 @enduml
