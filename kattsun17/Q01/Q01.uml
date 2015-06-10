@@ -1,0 +1,21 @@
+@startuml
+
+<title>自動販売機 ユースケース図</title>
+
+
+actor :顧客 : as user
+actor :管理者 : as admin
+ 
+package "自動販売機" as 
+   usecase 商品を購入する as uc1
+   usecase 商品を補充する as uc2
+   usecase 商品を管理する as uc3
+end package
+
+user - uc1
+admin - uc2
+admin - uc3
+admin - uc1
+
+@enduml
+
