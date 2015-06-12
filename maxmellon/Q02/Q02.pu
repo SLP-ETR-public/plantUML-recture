@@ -1,0 +1,25 @@
+@startuml Q02.png
+title <size:18>Q02:maxmellon</size>
+actor User as user
+actor AdminUser as admin
+actor VendingMachine as vending
+user <|-up- admin
+
+left to right direction
+
+package "VendingMachineSystem" {
+
+  usecase (buy products)    as buyCase
+  usecase (charge products) as chargeCase
+  usecase (Manage products) as manageCase
+  usecase (heat products)   as heat
+  usecase (cold products)   as cold
+
+  user    -ri- buyCase
+  admin   -ri- chargeCase
+  vending -le- manageCase
+
+  manageCase .ri.> heat : include
+  manageCase .ri.> cold : include
+}
+@enduml
