@@ -1,14 +1,13 @@
 @startuml Q01.png
 title <size:18>Q01:maxmellon</size>
-actor User as user
-actor AdminUser as admin
+actor User           as user
+actor AdminUser      as admin
 actor VendingMachine as vending
 user <|-up- admin
 
 left to right direction
 
 package "VendingMachineSystem" {
-
   usecase (buy products)    as buyCase
   usecase (charge products) as chargeCase
   usecase (Manage products) as manageCase
@@ -19,7 +18,7 @@ package "VendingMachineSystem" {
   admin   -ri- chargeCase
   vending -le- manageCase
 
-  manageCase .ri.> heat : include
-  manageCase .ri.> cold : include
+  manageCase .le.> heat : <<include>>
+  manageCase .le.> cold : <<include>>
 }
 @enduml
