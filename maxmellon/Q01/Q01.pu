@@ -18,7 +18,7 @@ package "VendingMachineSystem" {
   admin   -ri- chargeCase
   vending -le- manageCase
 
-  manageCase .le.> heat : <<include>>
-  manageCase .le.> cold : <<include>>
+  manageCase <.le. heat : <<include>>
+  manageCase <.le. cold : <<include>>
 }
 @enduml
