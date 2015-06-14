@@ -1,5 +1,9 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/MaxMEllon/plantUML-recture)
 
+# ねらい
+
+ユースケース図，クラス図のスキル向上・クラス図に基づいた実装の実践．機能拡張や保守性を考えた設計の実践的練習．
+
 # 問1
 
 次の要件を満たすような，自動販売機システムのUMLユースケース図及びユースケースシナリオを作成せよ．
