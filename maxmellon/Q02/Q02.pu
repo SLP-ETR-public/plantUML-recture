@@ -1,25 +1,57 @@
 @startuml Q02.png
 title <size:18>Q02:maxmellon</size>
-actor User as user
-actor AdminUser as admin
-actor VendingMachine as vending
+actor 顧客 as user
+actor 管理者 as admin
+actor 自販機 as vending
+
+actor 販売失敗 as missSale
+
 user <|-up- admin
 
 left to right direction
 
-package "VendingMachineSystem" {
+skinparam usecase {
+  BackgroundColor<<MissUseCase>> DarkSeaGreen
+  BackgroundColor<<NegativeActor>> DarkSeaGreen
+  BackgroundColor<<Mitigate>> YellowGreen
+}
 
-  usecase (buy products)    as buyCase
-  usecase (charge products) as chargeCase
-  usecase (Manage products) as manageCase
-  usecase (heat products)   as heat
-  usecase (cold products)   as cold
+actor 釣銭切 as lostedChange <<NegativeActor>>
+actor 売切   as soledOut     <<NegativeActor>>
 
-  user    -ri- buyCase
-  admin   -ri- chargeCase
-  vending -le- manageCase
+package "自動販売機システム" {
 
-  manageCase .ri.> heat : include
-  manageCase .ri.> cold : include
+  usecase (商品を購入する)   as buyCase
+  usecase (商品を補充する)   as chargeCase
+  usecase (商品を管理する)   as manageCase
+  usecase (商品を温める)     as heat
+  usecase (商品を冷やす)     as cold
+
+  usecase (釣銭が切れる)     as lostChange  <<MissUseCase>>
+  usecase (商品が切れる)     as lostProduct <<MissUseCase>>
+
+  usecase (管理者に連絡する) as connectAdmin <<Mitigate>>
+
+  user    -- buyCase
+  admin   -- chargeCase
+
+  buyCase -- lostChange  : <<threaten>>
+  buyCase -- lostProduct : <<threaten>>
+
+  buyCase .. connectAdmin : <<include>>
+
+  lostChange  -up- missSale
+  lostProduct -up- missSale
+
+  lostChange  -down- lostedChange
+  lostProduct -down- soledOut
+
+  lostChange  -- connectAdmin <<mitigate>>
+  lostProduct -- connectAdmin <<mitigate>>
+
+  heat .. manageCase : <<include>>
+  cold .. manageCase : <<include>>
+
+  vending -right- manageCase
 }
 @enduml
