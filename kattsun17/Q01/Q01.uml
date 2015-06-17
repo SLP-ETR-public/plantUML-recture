@@ -5,34 +5,21 @@ title : 自動販売機 ユースケース図
 
 actor :顧客 : as user
 actor :管理者 : as admin
- 
-package "自動販売機" { 
+actor :自動販売機 : as machine
+package "自動販売機システム" { 
 
-  package "商品販売機能" {
-    usecase お金の入力を受け付ける as getmoney
-    usecase 入金残高を計測する as summoney
-    usecase 各商品のランプを光らせる as lamp
-    usecase 商品を排出する as sell
-    usecase おつりを出す as buckmoney
-    usecase 商品を冷却する as cool
-  }
-  
-  package "管理機能" {
-    usecase 商品の追加を受け付ける as add
-    usecase 売上を排出する as seller
-  
-  }
-
+    usecase 商品を購入する as getitem
+    usecase 商品を補填する as additem
+    usecase 商品を管理する as saveitem
+    usecase 売上を管理する as maeketing
 }
 
-user - getmoney
-user - summoney
-user - lump
-user - sell
-user - buckmoney
-user - cool
-admin - add
-admin - seller
+machine - saveitem
+
+user - getitem
+admin - additem
+admin - maeketing
+user <|-- admin
 
 @enduml
 
