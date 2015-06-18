@@ -1,0 +1,39 @@
+@startuml
+
+title : 自動販売機 ユースケース図
+
+
+actor :顧客 : as user
+actor :管理者 : as admin
+actor :自動販売機 : as machine
+actor :悪人 : as worse
+package "自動販売機システム" { 
+
+    usecase 商品を購入する as getitem
+    usecase 商品を補填する as additem
+    usecase 商品を管理する as saveitem
+    usecase 売上を管理する as maeketing
+
+    usecase 継続的に営業する as idle
+
+    usecase 故障する as break <<missusecase>>
+    usecase 釣り切れ as empmonay <<missusecase>>
+    usecase 商品が売り切れる as empitem <<missusecase>>
+    usecase 強盗 as trouble <<missusecase>>
+}
+
+machine - saveitem
+
+user - getitem
+admin - additem
+admin - maeketing
+user <|-- admin
+worse - trouble
+idle - getitem
+idle - break <<mitigate>>
+idle - empmonay <<mitigate>>
+idle - empitem <<mitigate>>
+idle - trouble <<mitigate>>
+
+@enduml
+
