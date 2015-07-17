@@ -1,5 +1,62 @@
 @startuml
 
+class 入力デバイス {
+
+}
+
+class 出力デバイス {
+
+}
+
+class 商品選択ボタン {
+
+}
+
+class 商品ボタンのライト {
+
+}
+
+class 入金額表示のモニタ {
+
+}
+
+class お金管理部 {
+
+}
+
+class コイン投入口 {
+
+}
+
+class お釣り出口 {
+
+}
+
+class コイン保管庫 {
+
+}
+
+class 商品管理 {
+
+}
+
+class 商品保管庫 {
+
+}
+
+class 商品出口 {
+
+}
+
+class 商品入り口 {
+
+}
+
+class 商品ディスプレイ {
+
+}
+
+
 
 class 入金部 {
     - 入金額
