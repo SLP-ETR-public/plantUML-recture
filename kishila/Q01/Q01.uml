@@ -7,7 +7,7 @@ actor 温度管理システム as thersys
 
 package "自動販売機システム" {
     usecase (商品を購入する) as buy
-    usecase (商品を補充する) as supple
+    usecase (商品を補充する) as supply
     usecase (商品を管理する) as thermana
 }
 
