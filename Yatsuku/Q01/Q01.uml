@@ -1,0 +1,26 @@
+@startuml Q01.png
+
+title <size:18>Q01:Yatsuku</size>
+
+actor 顧客 as user
+actor 管理者 as admin
+actor 自動販売機 as vendingmachine
+user <|-up- admin
+
+left to right direction
+
+package "商品管理システム" {
+	usecase (購入) as buyCase
+	usecase (商品補充) as supplyCase
+	usecase (商品管理) as merchandisecontrolCase
+	usecase (保温) as keepwarm
+	usecase (冷蔵) as keepcold
+
+	user -ri- buyCase
+	admin -ri- supplyCase
+	vendingmachine -le- merchandisecontrolCase
+
+	merchandisecontrolCase <.le. keepwarm : <include>>
+	merchandisecontrolCase <.le. keepcold : <include>>
+}
+@enduml
