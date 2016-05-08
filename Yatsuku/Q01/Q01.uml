@@ -20,7 +20,7 @@ package "Merchandise Management System" {
 	admin -ri- supplyCase
 	vendingmachine -le- merchandisecontrolCase
 
-	merchandisecontrolCase <.le. keepwarm : <include>>
-	merchandisecontrolCase <.le. keepcold : <include>>
+	merchandisecontrolCase <.le. keepwarm : <include>
+	merchandisecontrolCase <.le. keepcold : <include>
 }
 @enduml
