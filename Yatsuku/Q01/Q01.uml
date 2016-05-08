@@ -9,7 +9,7 @@ user <|-up- admin
 
 left to right direction
 
-package "Merchandise management system" {
+package "Merchandise Management System" {
 	usecase (buy products) as buyCase
 	usecase (supply products) as supplyCase
 	usecase (manage products) as merchandisecontrolCase
