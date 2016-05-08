@@ -1,0 +1,26 @@
+@startuml Q01.png
+
+title <size:18>Q01:Yatsuku</size>
+
+actor Buyer as user
+actor Administrator as admin
+actor VendingMachine as vendingmachine
+user <|-up- admin
+
+left to right direction
+
+package "Merchandise Management System" {
+	usecase (buy products) as buyCase
+	usecase (supply products) as supplyCase
+	usecase (manage products) as merchandisecontrolCase
+	usecase (keep warm) as keepwarm
+	usecase (keep cold) as keepcold
+
+	user -ri- buyCase
+	admin -ri- supplyCase
+	vendingmachine -le- merchandisecontrolCase
+
+	merchandisecontrolCase <.le. keepwarm : <include>>
+	merchandisecontrolCase <.le. keepcold : <include>>
+}
+@enduml
