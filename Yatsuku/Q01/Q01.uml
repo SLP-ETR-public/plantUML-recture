@@ -9,11 +9,11 @@ user <|-up- admin
 
 left to right direction
 
-package "商品管理システム" {
+package "Merchandise management system" {
 	usecase (buy products) as buyCase
 	usecase (supply products) as supplyCase
 	usecase (manage products) as merchandisecontrolCase
-	usecase (kepp warm) as keepwarm
+	usecase (keep warm) as keepwarm
 	usecase (keep cold) as keepcold
 
 	user -ri- buyCase
