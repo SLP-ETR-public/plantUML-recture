@@ -1,0 +1,15 @@
+@startuml Q03.png
+
+title <size:18>Q03:Yatsuku</size>
+
+class Buyer {
+	+buyProduct()
+}
+
+class Administrator {
+	-supplyProduct()
+}
+
+Buyer <|-- Administrator
+
+@enduml
