@@ -10,6 +10,16 @@ class Administrator {
 	-supplyProduct()
 }
 
+class VendingMachine {
+	+manageProducts()
+	-keepWarm()
+	-keepCold()
+}
+
+class LightningStrike {
+	-stopTheVendingMachine()
+}
+
 Buyer <|-- Administrator
 
 @enduml
