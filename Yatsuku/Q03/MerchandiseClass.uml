@@ -2,22 +2,26 @@
 
 title <size:18>Q03:Yatsuku</size>
 
-class Buyer {
-	+buyProduct()
-}
+package merchandise.management.system <<Frame>> {
 
-class Administrator {
-	-supplyProduct()
-}
+	class Buyer {
+		+buyProduct()
+	}
 
-class VendingMachine {
-	+manageProducts()
-	-keepWarm()
-	-keepCold()
-}
+	class Administrator {
+		+supplyProduct()
+	}
 
-class LightningStrike {
-	-stopTheVendingMachine()
+	class VendingMachine {
+		+manageProducts()
+			-keepWarm()
+			-keepCold()
+	}
+
+	class LightningStrike {
+		-stopTheVendingMachine()
+	}
+
 }
 
 Buyer <|-- Administrator
